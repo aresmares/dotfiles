@@ -8,3 +8,7 @@
 
 # install dependacies
 `asdf install`
+
+# setup zsh
+`ln -s .zshrc ~/.zshrc`
+`ln -s .zshenv ~/.zshenv`
