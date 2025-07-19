@@ -1,0 +1,54 @@
+# Terminal & Shell
+ghostty
+tmux
+oh-my-zsh
+powerlevel10k
+zsh-syntax-highlighting
+zsh-autosuggestions
+zsh-completions
+fzf-tab
+
+# CLI Tools
+eza
+zoxide
+fzf
+fd
+bat
+coreutils
+
+# Git & GitHub
+gh
+lazygit
+git-workspace
+
+# Kubernetes & Containers
+docker
+--cask docker-desktop
+kubectl
+helm
+k3d
+k9s
+
+# Development
+nvim
+pyenv
+poetry
+--cask visual-studio-code
+dotnet
+
+# Window Management & Productivity
+--cask raycast
+aerospace
+
+# Messaging & APIs
+nats
+wireman
+
+# Logging & Monitoring
+lnav
+
+# Security
+--cask 1password-cli
+
+# AI Tools
+opencode

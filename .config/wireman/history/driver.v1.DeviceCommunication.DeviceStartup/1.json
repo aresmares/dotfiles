@@ -1,0 +1,6 @@
+{
+  "message": "{\n  \"driverId\": \"te\",\n  \"driverVersion\": \"aaa\",\n  \"platform\": \"12\"\n}",
+  "address": "http://localhost:50051",
+  "authentication": "",
+  "metadata": {}
+}

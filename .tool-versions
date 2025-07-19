@@ -1,8 +1,0 @@
-zsh 5.8.1
-tmux 3.3a
-rust 1.72.0 # Required for building Alacritty
-python 3.11.5 # Required for TheFuck and Python-based tools
-poetry 1.7.2 # Python packaging and dependency management
-neovim 0.9.4
-vscode 1.83.0
-
