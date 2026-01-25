@@ -174,9 +174,6 @@ compdef _gcfu_completion gcfu
 
 alias devdb='PGPASSWORD=dev psql -h localhost -p 5555 -U dev -d app -c'
 
-# GitHub Copilot
-alias gpt='gh copilot suggest'
-
 # Other aliases
 alias dc='docker compose'
 alias f='fzf'
@@ -196,9 +193,24 @@ export LINQ_SERVICE_FRAMEWORK_PUBLISH_FORMAT=json
 
 export OTEL_SDK_DISABLED=true
 
+
+pr() {
+    local title="$(git log -1 --format=%s)"
+    vared -p "> " title
+    local output
+    if output=$(gh pr create --title "$title" --body "" 2>&1); then
+        echo_c "${GREEN}${BOLD}success:${RESET} $output"
+        echo "$output" | pbcopy
+    else
+        echo_c "${RED}${BOLD}error:${RESET} $output${RESET}"
+        return 1
+    fi
+  }
 # coreutils from homebrew
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="$PATH:$HOME/automata-workspace/linq-local-development-platform/scripts"
 export XDG_CONFIG_HOME=$HOME/.config
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="$HOME/.local/bin:$PATH"
+
