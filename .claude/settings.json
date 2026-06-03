@@ -1,0 +1,62 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(sed -n:*)"
+    ]
+  },
+  "model": "opus[1m]",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "tool == 'Bash' && tool_input.command matches 'git push'",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '⚠ About to push to remote. Verify branch and target.'",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "tool == 'Bash' && tool_input.command matches 'rm -rf'",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '⚠ Destructive rm -rf detected. Verify path carefully.'",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "tool == 'Write' && tool_input.file_path matches '\\.py$'",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Python file written. Consider running /check for quality gates.'",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "claude-mem@thedotmack": true,
+    "pyright-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "superpowers-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers-marketplace"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
+  "voiceEnabled": true,
+  "skipAutoPermissionPrompt": true
+}
